@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CDSRecyclerView.iml" filepath="$PROJECT_DIR$/CDSRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CdsRecyclerViewLib/cdsrecyclerviewlib.iml" filepath="$PROJECT_DIR$/CdsRecyclerViewLib/cdsrecyclerviewlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Example/app.iml" filepath="$PROJECT_DIR$/Example/app.iml" />
+    </modules>
+  </component>
+</project>

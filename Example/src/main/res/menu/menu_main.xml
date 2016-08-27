@@ -1,0 +1,53 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.gauravchaddha.recyclerviewexample4.MainActivity">
+    <item
+        android:id="@+id/enableitemclick"
+        android:title="Enable Item Click"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/enableitemlongclick"
+        android:title="Enable Item Long Click"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableitemclick"
+        android:title="Disable Item Click"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableitemlongclick"
+        android:title="Disable Item Long Click"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/enableDrag"
+        android:title="Enable Drag"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/enableSwipe"
+        android:title="Enable Swipe"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableDrag"
+        android:title="Disable Drag"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableSwipe"
+        android:title="Disable Swipe"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/enableDragCompleteListener"
+        android:title="Enable Drag Complete Listener"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/enableSwipeCompleteListener"
+        android:title="Enable Swipe Complete Listener"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableDragCompleteListener"
+        android:title="Disable Drag Complete Listener"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disableSwipeCompleteListener"
+        android:title="Disable Swipe Complete Listener"
+        app:showAsAction="never"/>
+</menu>
