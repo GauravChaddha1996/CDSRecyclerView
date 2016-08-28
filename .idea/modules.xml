@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CDSRecyclerView.iml" filepath="$PROJECT_DIR$/CDSRecyclerView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CdsRecyclerViewLib/cdsrecyclerviewlib.iml" filepath="$PROJECT_DIR$/CdsRecyclerViewLib/cdsrecyclerviewlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Example/app.iml" filepath="$PROJECT_DIR$/Example/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CdsRecyclerViewLib/CdsRecyclerViewLib.iml" filepath="$PROJECT_DIR$/CdsRecyclerViewLib/CdsRecyclerViewLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Example/Example.iml" filepath="$PROJECT_DIR$/Example/Example.iml" />
     </modules>
   </component>
 </project>
