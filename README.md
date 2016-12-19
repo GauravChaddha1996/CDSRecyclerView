@@ -1,6 +1,7 @@
 # Click-Drag-Swipe (CDS) RecyclerView
 Recycler View Library with built-in Item click listeners,drag and swipe functionality.
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Click--Drag--Swipe%20(CDS)%20RecyclerView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4897)
 ##Description
 
 CDS Recycler View is a recycler view with item click, item long press, drag and swipe functionality.
