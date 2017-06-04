@@ -68,10 +68,11 @@ dependencies {
         return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.your_item_layout, parent, false));
     }
     
-    //Cast the viewholder to your custom view holder and then use it
+    // note that we override the bindHolder custom function to get back the
+    // custom view holder instead of the usual onBindViewHolder()
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((MyViewHolder) holder).mTextView.setText(getList().get(position));
+    public void bindHolder(MyViewHolder holder, int position) {
+        holder.mTextView.setText(getList().get(position));
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
