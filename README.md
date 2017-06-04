@@ -4,10 +4,10 @@ Recycler View Library with built-in Item click listeners,drag and swipe function
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Click--Drag--Swipe%20(CDS)%20RecyclerView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4897)
 ## Description
 
-CDS Recycler View is a recycler view with item click, item long press, drag and swipe functionality.
+CDS Recycler View is a recycler view with item click, item long press, drag, swipe and load more listener functionality.
+
 It provides setter functions for item clicks, item long press, drag complete listeners( listener called when drag of 
-an item completes),swipe complete listeners( listeners called when an item is swiped off).It also provide add and remove
-built-in functions for the recycler view adapter.
+an item completes),swipe complete listeners( listeners called when an item is swiped off) and setter and removal functions for load more listener. It also provide add and remove built-in functions for the recycler view adapter.
 
 ## Gradle Usage
 
@@ -26,7 +26,7 @@ Step 2. Add the dependency
 
 ```
 dependencies {
-        compile 'com.github.GauravChaddha1996:CDSRecyclerView:1.0'
+        compile 'com.github.GauravChaddha1996:CDSRecyclerView:1.1'
 }
 ```
 
@@ -103,7 +103,7 @@ dependencies {
   mRecyclerView.setAdapter(mRecyclerViewAdapter);
   ```
   
-  **Setting on item click,long press,swipe and drag functionality**
+  **Setting on item click,long press, drag, swipe and load more listener functionality**
 
   ```
   mRecyclerView.setItemClickListener(new CdsRecyclerView.ItemClickListener() {
@@ -128,6 +128,17 @@ dependencies {
       
   mRecyclerView.enableItemSwipe();
   mRecyclerView.enableItemDrag();
+  mRecyclerView.setOnLoadMoreListener(new CdsRecyclerView.LoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                // do your loading here, maybe show a progress bar before loading after loading is done,
+			// remove the progress bar and remember to do the following- Set the loading in recycler
+			// view as false
+			mRecyclerView.setLoading(false);
+			//You can remove the load more listener like this
+			mRecyclerView.removeOnLoadMoreListener();
+            }
+        }, 5);
   ```
 ## Features and functions
 
@@ -235,7 +246,29 @@ dependencies {
     ```
     mRecyclerView.removeItemSwipeCompleteListener();
     ```
-    
+
+
+**7.Set or remove on load more listener**
+
+  + Set load more listener:
+  
+    ```
+      mRecyclerView.setOnLoadMoreListener(new CdsRecyclerView.LoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                // do your loading here, maybe show a progress bar before loading
+			// after loading is done, remove the progress bar and remember to do the
+			// following-
+			// Set the loading in recycler view as false
+			mRecyclerView.setLoading(false);
+            }
+        }, 5);
+    ```
+  + Remove load more listener:
+  
+    ```
+    mRecyclerView.removeOnLoadMoreListener();
+    ```
 ## License
 
 ``` 
