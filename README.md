@@ -9,6 +9,8 @@ CDS Recycler View is a recycler view with item click, item long press, drag, swi
 It provides setter functions for item clicks, item long press, drag complete listeners( listener called when drag of 
 an item completes),swipe complete listeners( listeners called when an item is swiped off) and setter and removal functions for load more listener. It also provide add and remove built-in functions for the recycler view adapter.
 
+**Min Sdk = 16**
+
 ## Gradle Usage
 
 Add it in your root build.gradle at the end of repositories:
