@@ -1,6 +1,8 @@
 package com.gaurav.cdsrecyclerviewsample;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
@@ -41,6 +43,29 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemLongPressListener(mItemLongPressListener);
         mRecyclerView.enableItemSwipe();
         mRecyclerView.enableItemDrag();
+        mRecyclerView.setOnLoadMoreListener(new CdsRecyclerView.LoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                // add a progress view and start the loading, I'm adding a
+                // a string saying loading.
+                mRecyclerViewAdapter.addItem("Loading", mRecyclerViewAdapter.getItemCount());
+                // I'm using a handler to delay to imitate loading time.
+                // so when loading is actually done, remove the loading string or
+                // progress bar and set the recycler view setLoading as false
+                // and add the items that you want to load.
+                Handler handler = new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        mRecyclerViewAdapter.removeItem(mRecyclerViewAdapter.getItemCount()-1);
+                        mRecyclerView.setLoading(false);
+                        // add new items here.
+                        //You can remove the load more listener like this
+                        mRecyclerView.removeOnLoadMoreListener();
+                    }
+                };
+                handler.sendEmptyMessageDelayed(0, 5000);
+            }
+        }, 5);
     }
 
     @Override

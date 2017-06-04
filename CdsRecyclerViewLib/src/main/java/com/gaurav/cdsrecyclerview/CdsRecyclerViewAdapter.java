@@ -18,6 +18,16 @@ public abstract class CdsRecyclerViewAdapter<T, VH extends RecyclerView.ViewHold
         mList = list;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        bindHolder((VH) holder, position);
+    }
+
+    public void bindHolder(VH holder, int position) {
+
+    }
+
     @Override
     public int getItemCount() {
         return mList.size();

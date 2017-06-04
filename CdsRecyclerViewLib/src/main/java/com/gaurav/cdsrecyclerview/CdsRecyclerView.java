@@ -2,6 +2,7 @@ package com.gaurav.cdsrecyclerview;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
@@ -19,6 +20,12 @@ public class CdsRecyclerView extends RecyclerView implements ItemClickSupport.On
     private ItemLongPressListener mItemLongPressListener = null;
     //Callback for drag and swipe cases
     private CdsItemTouchCallback mCdsItemTouchCallback = null;
+    private int totalItemCount;
+    private int lastVisibleItem;
+    private boolean isLoading = false;
+    private LoadMoreListener loadMoreListener;
+    private OnScrollListener scrollListener;
+    private int visibleThreshold;
 
     public CdsRecyclerView(Context context) {
         super(context);
@@ -50,6 +57,19 @@ public class CdsRecyclerView extends RecyclerView implements ItemClickSupport.On
         mCdsItemTouchCallback.setItemDragEnabled(false);
         mCdsItemTouchCallback.setItemSwipeEnabled(false);
         new ItemTouchHelper(mCdsItemTouchCallback).attachToRecyclerView(this);
+        scrollListener = new OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                totalItemCount = getLayoutManager().getItemCount();
+                lastVisibleItem = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
+                if (!isLoading && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
+                    if (loadMoreListener != null) {
+                        loadMoreListener.onLoadMore();
+                    }
+                    isLoading = true;
+                }
+            }
+        };
     }
 
     @Override
@@ -134,6 +154,28 @@ public class CdsRecyclerView extends RecyclerView implements ItemClickSupport.On
         mCdsItemTouchCallback.setItemSwipeCompleteListener(null);
     }
 
+    /**
+     * Only works with linear layout manager.
+     */
+    public void setOnLoadMoreListener(LoadMoreListener loadMoreListener, int visibleThreshold) {
+        this.visibleThreshold = visibleThreshold;
+        this.loadMoreListener = loadMoreListener;
+        this.addOnScrollListener(scrollListener);
+    }
+
+    public void removeOnLoadMoreListener() {
+        this.loadMoreListener = null;
+        this.removeOnScrollListener(scrollListener);
+    }
+
+    public boolean isLoading() {
+        return isLoading;
+    }
+
+    public void setLoading(boolean loading) {
+        isLoading = loading;
+    }
+
     public interface ItemClickListener {
         public void onItemClick(int position);
     }
@@ -142,5 +184,8 @@ public class CdsRecyclerView extends RecyclerView implements ItemClickSupport.On
         public void onItemLongClick(int position);
     }
 
+    public interface LoadMoreListener {
+        public void onLoadMore();
+    }
 
 }
