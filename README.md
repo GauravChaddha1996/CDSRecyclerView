@@ -28,7 +28,7 @@ Step 2. Add the dependency
 
 ```
 dependencies {
-        compile 'com.github.GauravChaddha1996:CDSRecyclerView:1.1'
+        compile 'com.github.GauravChaddha1996:CDSRecyclerView:1.2'
 }
 ```
 
