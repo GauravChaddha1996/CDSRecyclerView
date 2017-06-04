@@ -2,14 +2,14 @@
 Recycler View Library with built-in Item click listeners,drag and swipe functionality.
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Click--Drag--Swipe%20(CDS)%20RecyclerView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4897)
-##Description
+## Description
 
 CDS Recycler View is a recycler view with item click, item long press, drag and swipe functionality.
 It provides setter functions for item clicks, item long press, drag complete listeners( listener called when drag of 
 an item completes),swipe complete listeners( listeners called when an item is swiped off).It also provide add and remove
 built-in functions for the recycler view adapter.
 
-##Gradle Usage
+## Gradle Usage
 
 Add it in your root build.gradle at the end of repositories:
 
@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-##Usage
+## Usage
   
   *Drag and swipe functionality is disabled by defualt.Use the enable functions to add them after recycler view initialization*
   
@@ -128,7 +128,7 @@ dependencies {
   mRecyclerView.enableItemSwipe();
   mRecyclerView.enableItemDrag();
   ```
-##Features and functions
+## Features and functions
 
 **1.Set and disable item click listeners**
 
